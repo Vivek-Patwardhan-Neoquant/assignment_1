@@ -1,0 +1,26 @@
+<section *ngIf="loginFormStatus">
+    <form action="" [formGroup]="loginForm" (ngSubmit)="onLogin()" class="formCard mt-4 pt-4">
+        <div class="row pt-2 inputBlock">
+            <label class="p-0" for="emailID">Email:</label>
+            <input class="" id="emailID" name="email" type="email" formControlName="email">
+            <span class="alert alert-danger errorInput p-0 px-2" 
+                  *ngIf="getterEmail && getterEmail.invalid && getterEmail.touched">
+              Enter Email
+            </span>
+        </div>
+        <div class="row pt-2 inputBlock">
+            <label class="p-0" for="loginPasswordID">Password:</label>
+            <input class="" id="passwordID" name="password" type="password" formControlName="password">
+            <span class="alert alert-danger errorInput p-0 px-2"
+                  *ngIf="getterPassword && getterPassword.invalid && getterPassword.touched">
+              Enter Password
+            </span>
+        </div>
+        <div class="row mt-2" style="align-self: center;">
+            <button class="btn btn-primary btnSubmit" type="submit" [disabled]="loginForm.invalid">Login</button>
+        </div>
+    </form>
+    <div class="bottomAnchor">
+        <a routerLink="">Not having account? Signup Here!</a>
+    </div>
+</section>

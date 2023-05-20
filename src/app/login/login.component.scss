@@ -1,0 +1,26 @@
+.formCard {
+    margin: auto;
+    width: 400px;
+    padding: 10px;
+    border: 1px grey solid;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.inputBlock {
+    align-self: center;
+    width: 70%;
+}
+
+.errorInput {
+    text-align: center;
+}
+
+.bottomAnchor {
+    text-decoration: none !important;
+    text-align: center;
+    font-size: 14px;
+    margin-top: 10px;
+    color: grey;
+}

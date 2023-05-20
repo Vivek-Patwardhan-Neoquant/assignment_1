@@ -1,0 +1,34 @@
+<section *ngIf="!loginFormStatus">
+    <form action="" [formGroup]="signupForm" (ngSubmit)="onSignup()" class="formCard mt-4 pt-4">
+        <div class="row pt-2 inputBlock">
+            <label class="p-0" for="signupUsernameID">Username:</label>
+            <input class="" id="signupUsernameID" name="signupUsername" type="text" formControlName="username">
+            <span class="alert alert-danger errorInput p-0 px-2" 
+                  *ngIf="getterUsername && getterUsername.invalid && getterUsername.touched">
+              Enter Username
+            </span>
+        </div>
+        <div class="row pt-2 inputBlock">
+            <label class="p-0" for="signupEmailID">email:</label>
+            <input class="" id="signupEmailID" name="signupEmail" type="email" formControlName="email">
+            <span class="alert alert-danger errorInput p-0 px-2" 
+                  *ngIf="getterEmail && getterEmail.invalid && getterEmail.touched">
+              Enter Email
+            </span>
+        </div>
+        <div class="row pt-2 inputBlock">
+            <label class="p-0" for="signupPasswordID">Password:</label>
+            <input class="" id="signupPasswordID" name="signupPassword" type="password" formControlName="password">
+            <span class="alert alert-danger errorInput p-0 px-2"
+                  *ngIf="getterPassword && getterPassword.invalid && getterPassword.touched">
+              Enter Password
+            </span>
+        </div>
+        <div class="row mt-2" style="align-self: center;">
+            <button class="btn btn-primary btnSubmit" type="submit" [disabled]="signupForm.invalid">SignUp</button>
+        </div>
+    </form>
+    <div class="bottomAnchor">
+        <a routerLink="/login" >Already have an account? Login Here!</a>
+    </div>
+</section>
