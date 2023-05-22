@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms'
+import { UserDataService } from 'src/services/user-data.service';
 
 @Component({
   selector: 'app-signup',
@@ -8,13 +9,16 @@ import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms'
 })
 export class SignupComponent implements OnInit {
 
+  regToken: any;
+  userID: any;
   loginFormStatus = false;
 
   signupForm = new FormGroup ({
-    username: new FormControl("", [ Validators.required, Validators.minLength(4), Validators.maxLength(16) ]),
     email: new FormControl("", [ Validators.required, Validators.email ]),
     password: new FormControl("", [ Validators.required, Validators.minLength(4), Validators.maxLength(16) ])
   });
+
+  constructor (private userData: UserDataService) {}
 
   ngOnInit(): void {
     
@@ -23,7 +27,11 @@ export class SignupComponent implements OnInit {
   onSignup() {
     console.log("Signup Form Submitted!");
     console.log(this.signupForm.value);
-    this.signupForm.reset();
+    this.userData.signup(this.signupForm.value.email, this.signupForm.value.password).subscribe((response: any)=>{
+      this.regToken = response.token;
+      this.userID = response.id;
+      console.log(this.regToken, this.userID);
+    })
     // this.signupForm = new FormGroup ({
     //   username: new FormControl("", [ Validators.required, Validators.minLength(4), Validators.maxLength(16) ]),
     //   email: new FormControl("", [ Validators.required, Validators.email ]),
@@ -31,22 +39,13 @@ export class SignupComponent implements OnInit {
     // });
     // if(!this.signupForm.valid){
     //   return;
-    // }
-    // this.getterUsername?.patchValue('');
-    // this.getterPassword?.patchValue('');
-    // this.getterEmail?.patchValue('');
+    // }    
   }
 
-  get getterUsername() {
-    return this.signupForm.get('username');
-  }
   get getterEmail() {
     return this.signupForm.get('email');
   }
   get getterPassword() {
     return this.signupForm.get('password');
   }
-  // changeStatus() {
-  //   this.loginFormStatus = true;
-  // }
 }

@@ -10,8 +10,13 @@ export class UserDataService {
     users(){
       return this.http.get(this.url+'/api/users?page='+'1');
     }
-    login(email: string, password: string){
+
+    login(email: any = '', password: any = ''){
       return this.http.post(this.url+'/api/login', { email, password });
+    }
+
+    signup(email: any = '', password: any = ''){
+      return this.http.post(this.url+'/api/register', { email, password });
     }
     // login(){
     //   return this.http.get(this.url+'/api/login');

@@ -1,13 +1,13 @@
 <section *ngIf="!loginFormStatus">
     <form action="" [formGroup]="signupForm" (ngSubmit)="onSignup()" class="formCard mt-4 pt-4">
-        <div class="row pt-2 inputBlock">
+        <!-- <div class="row pt-2 inputBlock">
             <label class="p-0" for="signupUsernameID">Username:</label>
             <input class="" id="signupUsernameID" name="signupUsername" type="text" formControlName="username">
             <span class="alert alert-danger errorInput p-0 px-2" 
                   *ngIf="getterUsername && getterUsername.invalid && getterUsername.touched">
               Enter Username
             </span>
-        </div>
+        </div> -->
         <div class="row pt-2 inputBlock">
             <label class="p-0" for="signupEmailID">email:</label>
             <input class="" id="signupEmailID" name="signupEmail" type="email" formControlName="email">
