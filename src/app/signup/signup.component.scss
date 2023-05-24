@@ -18,9 +18,12 @@
 }
 
 .bottomAnchor {
-    text-decoration: none !important;
     text-align: center;
+}
+
+.bottomAnchor a {
+    text-decoration: none !important;
     font-size: 14px;
     margin-top: 10px;
-    color: grey;
+    color: #afafaf;
 }

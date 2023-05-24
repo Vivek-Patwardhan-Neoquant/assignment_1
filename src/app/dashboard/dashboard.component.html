@@ -1,9 +1,33 @@
-<h3>Users List</h3>
-<ul>
-    <li *ngFor="let user of users">
-        {{user.first_name}} {{user.last_name}} 
-    </li>
+<h3 class="m-4">Users List</h3>
+<!-- <p>{{totalPages}}</p> -->
+<ul class="mx-4 list-group">
+    <div *ngIf="currentPage == 1">
+        <li class="list-group-item" *ngFor="let userSet1 of users_page_1">
+            {{userSet1.first_name}} {{userSet1.last_name}} 
+        </li>
+    </div>
+    <div *ngIf="currentPage == 2">
+        <li class="list-group-item" *ngFor="let userSet2 of users_page_2">
+            {{userSet2.first_name}} {{userSet2.last_name}} 
+        </li>
+    </div>
 </ul>
-<div class="row mt-2" style="align-self: center; width: fit-content; margin: auto;">
+<nav class="mt-4" aria-label="...">
+    <ul class="pagination" style="justify-content: center;">
+      <li class="page-item">
+        <a class="page-link" [ngClass]="currentPage == 1? 'disabled' : ''" (click)="pageCountPre(); pageCount(page1);" tabindex="-1">Previous</a>
+      </li>
+      <li class="page-item" [ngClass]="currentPage == 1? 'active' : ''">
+        <a class="page-link" (click)="pageCount(page1)">{{page1}}</a>
+      </li>
+      <li class="page-item" [ngClass]="currentPage == 2? 'active' : ''">
+        <a class="page-link" (click)="pageCount(page2)">{{page2}}</a>
+      </li>
+      <li class="page-item" [ngClass]="currentPage == 2? 'disabled' : ''">
+        <a class="page-link" (click)="pageCountNext(); pageCount(page2);">Next</a>
+      </li>
+    </ul>
+  </nav>
+<div class="row my-4" style="align-self: center; width: fit-content; margin: auto;">
     <button class="btn btn-primary" type="button" (click)="onLogout()">Log Out</button>
 </div>

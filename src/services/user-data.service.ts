@@ -7,18 +7,10 @@ import { HttpClient } from '@angular/common/http';
 export class UserDataService {
   url = "https://reqres.in";
   constructor(private http:HttpClient) { }
-    users(){
+    users_page1(){
       return this.http.get(this.url+'/api/users?page='+'1');
-    }
-
-    login(email: any = '', password: any = ''){
-      return this.http.post(this.url+'/api/login', { email, password });
-    }
-
-    signup(email: any = '', password: any = ''){
-      return this.http.post(this.url+'/api/register', { email, password });
-    }
-    // login(){
-    //   return this.http.get(this.url+'/api/login');
-    // }
+    }    
+    users_page2(){
+      return this.http.get(this.url+'/api/users?page='+'2');
+    }    
 }
