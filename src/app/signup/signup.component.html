@@ -1,5 +1,5 @@
 <section *ngIf="!loginFormStatus">
-    <form action="" [formGroup]="signupForm" (ngSubmit)="onSignup()" class="formCard mt-4 pt-4">
+    <form action="" [formGroup]="signupForm" (ngSubmit)="onSignup()" class="formCard mt-4 py-4">
         <!-- <div class="row pt-2 inputBlock">
             <label class="p-0" for="signupUsernameID">Username:</label>
             <input class="" id="signupUsernameID" name="signupUsername" type="text" formControlName="username">
@@ -8,8 +8,9 @@
               Enter Username
             </span>
         </div> -->
+        <h3 class="ms-4">User SignUp</h3>
         <div class="row pt-2 inputBlock">
-            <label class="p-0" for="signupEmailID">email:</label>
+            <label class="p-0" for="signupEmailID">Email:</label>
             <input class="" id="signupEmailID" name="signupEmail" type="email" formControlName="email">
             <span class="alert alert-danger errorInput p-0 px-2" 
                   *ngIf="getterEmail && getterEmail.invalid && getterEmail.touched">
@@ -24,8 +25,8 @@
               Enter Password
             </span>
         </div>
-        <div class="row mt-2" style="align-self: center;">
-            <button class="btn btn-primary btnSubmit" type="submit" [disabled]="signupForm.invalid">SignUp</button>
+        <div class="row mt-4" style="align-self: center;">
+            <button class="btn btn-success btnSubmit" type="submit" [disabled]="signupForm.invalid">SignUp</button>
         </div>
     </form>
     <div class="bottomAnchor">

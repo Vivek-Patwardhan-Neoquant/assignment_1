@@ -1,5 +1,6 @@
 <section *ngIf="loginFormStatus">
-    <form action="" [formGroup]="loginForm" (ngSubmit)="onLogin()" class="formCard mt-4 pt-4">
+    <form action="" [formGroup]="loginForm" (ngSubmit)="onLogin()" class="formCard mt-4 py-4">
+        <h3 class="ms-4">User Login</h3>
         <div class="row pt-2 inputBlock">
             <label class="p-0" for="emailID">Email:</label>
             <input class="" id="emailID" name="email" type="email" formControlName="email">
@@ -16,8 +17,8 @@
               Enter Password
             </span>
         </div>
-        <div class="row mt-2" style="align-self: center;">
-            <button class="btn btn-primary btnSubmit" type="submit" [disabled]="loginForm.invalid">Login</button>
+        <div class="row mt-4" style="align-self: center;">
+            <button class="btn btn-success btnSubmit" type="submit" [disabled]="loginForm.invalid">Login</button>
         </div>
     </form>
     <div class="bottomAnchor">
