@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -8,8 +7,8 @@ import { BehaviorSubject } from 'rxjs';
 export class ResourceService {
   url = "https://reqres.in";
 
-  displayResources = new BehaviorSubject<boolean>(false);
-  
+  displayResources: boolean = false;
+
   constructor(private http:HttpClient) { }
 
     resources(){

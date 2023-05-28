@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +8,7 @@ export class UserDataService {
   
   url = "https://reqres.in";
 
-  displayUsers = new BehaviorSubject<boolean>(true);
+  displayUsers: boolean = true;
 
   constructor(private http:HttpClient) { }
     users_page1(){

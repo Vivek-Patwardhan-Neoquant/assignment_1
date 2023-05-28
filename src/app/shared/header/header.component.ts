@@ -13,19 +13,19 @@ export class HeaderComponent {
 
   showUsers(){
     console.log('Show Users');
-    this.userData.displayUsers.next(true);
-    this.resourceService.displayResources.next(false);
-    console.log('User'+this.userData.displayUsers.value);
-    console.log('Resource'+this.resourceService.displayResources.value);
+    this.userData.displayUsers = true;
+    this.resourceService.displayResources = false;
+    console.log('User: '+this.userData.displayUsers);
+    console.log('Resource: '+this.resourceService.displayResources);
     // this.displayUsers.next(true);
     // this.displayResources.next(false);
   }
 
   showResources(){
     console.log('Show Resources');
-    this.userData.displayUsers.next(false);
-    this.resourceService.displayResources.next(true);
-    console.log('User'+this.userData.displayUsers.value);
-    console.log('Resource'+this.resourceService.displayResources.value);
+    this.userData.displayUsers = false;
+    this.resourceService.displayResources = true;
+    console.log('User: '+this.userData.displayUsers);
+    console.log('Resource: '+this.resourceService.displayResources);
   }
 }

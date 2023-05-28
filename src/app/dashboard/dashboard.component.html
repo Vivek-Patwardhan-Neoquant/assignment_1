@@ -21,9 +21,8 @@
     </ul>
   </div>
 
-  <app-resources *ngIf="this.isShowResource"></app-resources>
-
-  <nav class="mt-4" aria-label="...">
+  <div *ngIf="this.isShowUsers">
+    <nav class="mt-4" aria-label="...">
       <ul class="pagination" style="justify-content: center;">
         <li class="page-item">
           <a class="page-link" [ngClass]="currentPage == 1? 'disabled' : ''" (click)="pageCountPre(); pageCount(page1);" tabindex="-1">Previous</a>
@@ -39,6 +38,10 @@
         </li>
       </ul>
     </nav>
+  </div>
+
+  <app-resources *ngIf="this.isShowResource"></app-resources>
+
   <div class="row my-4" style="align-self: center; width: fit-content; margin: auto;">
       <button class="btn btn-primary" type="button" (click)="onLogout()">Log Out</button>
   </div>

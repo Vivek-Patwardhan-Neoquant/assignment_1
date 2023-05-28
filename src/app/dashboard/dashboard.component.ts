@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { AfterContentChecked, Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ResourceService } from 'src/services/resource.service';
 import { UserDataService } from 'src/services/user-data.service';
@@ -8,7 +8,7 @@ import { UserDataService } from 'src/services/user-data.service';
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss']
 })
-export class DashboardComponent implements OnInit, OnDestroy {
+export class DashboardComponent implements OnInit, OnDestroy, AfterContentChecked {
   users_page_1:any;
   users_page_2:any;
   currentPage: number = 1;
@@ -57,10 +57,14 @@ export class DashboardComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.currentUserEmail = localStorage.getItem("checkEmail");
-    this.isShowUsers = this.userData.displayUsers.value;
-    this.isShowResource = this.resources.displayResources.value;
+    
     // console.log('users data 1 '+this.users_page_1);
     // console.log('users data 2 '+this.users_page_2);
+  }
+
+  ngAfterContentChecked(): void {
+    this.isShowUsers = this.userData.displayUsers;
+    this.isShowResource = this.resources.displayResources;
   }
 
   pageCount(x:any){
