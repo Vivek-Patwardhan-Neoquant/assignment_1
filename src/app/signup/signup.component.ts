@@ -39,10 +39,10 @@ export class SignupComponent implements OnInit, OnDestroy {
           this.router.navigateByUrl('/login');
         }
       },
-        error: (error: HttpErrorResponse) => {
-        this.signupErrorMsg = error.message;
-        console.error('There was an error! '+this.signupErrorMsg);
-    }
+      error: (error: HttpErrorResponse) => {
+      this.signupErrorMsg = error.message;
+      console.error('There was an error! '+this.signupErrorMsg);
+      }
     })   
   }
 

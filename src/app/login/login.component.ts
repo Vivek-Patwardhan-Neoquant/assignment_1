@@ -16,6 +16,7 @@ export class LoginComponent implements OnInit, OnDestroy {
   loginFormStatus = true;
   isUserLoggedIn = new BehaviorSubject<boolean>(false);
   loginErrorMsg: string = '';
+  checkEmail: any;
   
   loginForm = new FormGroup ({
     email: new FormControl("", [ Validators.required, Validators.email ]),
@@ -35,7 +36,9 @@ export class LoginComponent implements OnInit, OnDestroy {
         next: (response:any) => {
           if (response.token){
                 this.loginToken = response.token;
+                this.checkEmail = this.loginForm.value.email;
                 localStorage.setItem("token", this.loginToken);
+                localStorage.setItem("checkEmail",this.checkEmail);
                 this.router.navigateByUrl('/dashboard');
               }
           },

@@ -7,6 +7,7 @@ import { Injectable } from '@angular/core';
 export class LoginServiceService {
 
   url = "https://reqres.in";
+  
   constructor(private http:HttpClient) { }
 
   login(email: any = '', password: any = ''){
