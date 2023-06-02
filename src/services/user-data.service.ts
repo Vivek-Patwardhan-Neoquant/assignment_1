@@ -9,13 +9,11 @@ export class UserDataService {
   url = "https://reqres.in";
 
   displayUsers: boolean = true;
+  pageIs: number = 1;
 
   constructor(private http:HttpClient) { }
-    users_page1(){
-      return this.http.get(this.url+'/api/users?page='+'1');
-    }    
 
-    users_page2(){
-      return this.http.get(this.url+'/api/users?page='+'2');
-    }    
+    users_list(){
+      return this.http.get(this.url+'/api/users?page='+this.pageIs);
+    } 
 }

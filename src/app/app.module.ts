@@ -10,6 +10,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { HeaderComponent } from './shared/header/header.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { ResourcesComponent } from './shared/resources/resources.component';
+import { UserlistComponent } from './shared/userlist/userlist.component';
+import { CurrentUserPipe } from '../services/current-user.pipe';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { ResourcesComponent } from './shared/resources/resources.component';
     DashboardComponent,
     HeaderComponent,
     FooterComponent,
-    ResourcesComponent
+    ResourcesComponent,
+    UserlistComponent,
+    CurrentUserPipe
   ],
   imports: [
     BrowserModule,
