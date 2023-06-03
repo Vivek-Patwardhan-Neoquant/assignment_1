@@ -2,7 +2,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms'
 import { Router } from '@angular/router';
-import { UserDataService } from 'src/services/user-data.service';
+import { SignupServiceService } from 'src/services/signup.service';
 
 @Component({
   selector: 'app-signup',
@@ -21,7 +21,7 @@ export class SignupComponent implements OnInit, OnDestroy {
     password: new FormControl("", [ Validators.required, Validators.minLength(4), Validators.maxLength(16) ])
   });
 
-  constructor (private userData: UserDataService, private router: Router) {}
+  constructor (private signUpService: SignupServiceService, private router: Router) {}
 
   ngOnInit(): void {
     
@@ -30,7 +30,7 @@ export class SignupComponent implements OnInit, OnDestroy {
   onSignup() {
     console.log("Signup Form Submitted!");
     console.log(this.signupForm.value);
-    this.userData.signup(this.signupForm.value.email, this.signupForm.value.password).subscribe({
+    this.signUpService.signup(this.signupForm.value.email, this.signupForm.value.password).subscribe({
 
       next: (response:any) => {
         if (response.token){
@@ -39,10 +39,10 @@ export class SignupComponent implements OnInit, OnDestroy {
           this.router.navigateByUrl('/login');
         }
       },
-        error: (error: HttpErrorResponse) => {
-        this.signupErrorMsg = error.message;
-        console.error('There was an error! '+this.signupErrorMsg);
-    }
+      error: (error: HttpErrorResponse) => {
+      this.signupErrorMsg = error.message;
+      console.error('There was an error! '+this.signupErrorMsg);
+      }
     })   
   }
 

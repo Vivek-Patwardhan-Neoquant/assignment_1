@@ -1,4 +1,4 @@
-import { Component, OnDestroy } from '@angular/core';
+import { AfterContentChecked, Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserDataService } from 'src/services/user-data.service';
 
@@ -7,17 +7,33 @@ import { UserDataService } from 'src/services/user-data.service';
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss']
 })
-export class DashboardComponent implements OnDestroy {
-  users:any;
-  
-  constructor(private userData:UserDataService, private router: Router) {
-    this.userData.users().subscribe((response:any)=>{
-      this.users=response.data;
-    })
+export class DashboardComponent implements OnInit, OnDestroy, AfterContentChecked {
+
+  checkMail:any;
+  // page1: any;
+  // page2: any;
+  // currentUser: any;
+  // currentUserEmail: any;
+  // userList1Count: any;
+  // userList2Count: any;
+  // isShowResource: any;
+  // isShowUsers: any;
+
+  constructor(private userData:UserDataService, private router: Router) { }
+
+  ngOnInit(): void { 
+    this.checkMail = localStorage.getItem("checkEmail");
   }
 
+  ngAfterContentChecked(): void {
+    // this.isShowUsers = this.userData.displayUsers;
+    // this.isShowResource = this.resources.displayResources;
+  }
+  
   onLogout(){
     localStorage.removeItem("token");
+    localStorage.removeItem("checkEmail");
+    // localStorage.removeItem("checkEmail");
     this.router.navigateByUrl('/login');
   }
 

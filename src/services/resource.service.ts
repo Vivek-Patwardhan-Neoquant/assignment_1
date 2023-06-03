@@ -4,16 +4,14 @@ import { HttpClient } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
-export class UserDataService {
-  
+export class ResourceService {
   url = "https://reqres.in";
 
-  displayUsers: boolean = true;
-  pageIs: number = 1;
+  displayResources: boolean = false;
 
   constructor(private http:HttpClient) { }
 
-    users_list(){
-      return this.http.get(this.url+'/api/users?page='+this.pageIs);
-    } 
+    resources(){
+      return this.http.get(this.url+'/api/unknown');
+    }           
 }

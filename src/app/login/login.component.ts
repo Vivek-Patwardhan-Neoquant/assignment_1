@@ -2,8 +2,8 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms'
 import { Router } from '@angular/router';
-import { BehaviorSubject } from 'rxjs';
-import { UserDataService } from 'src/services/user-data.service';
+// import { BehaviorSubject } from 'rxjs';
+import { LoginServiceService } from 'src/services/login.service';
 
 @Component({
   selector: 'app-login',
@@ -14,15 +14,17 @@ export class LoginComponent implements OnInit, OnDestroy {
   
   loginToken:any;
   loginFormStatus = true;
-  isUserLoggedIn = new BehaviorSubject<boolean>(false);
+  // isUserLoggedIn = new BehaviorSubject<boolean>(false);
   loginErrorMsg: string = '';
+  checkEmail: any;
   
   loginForm = new FormGroup ({
     email: new FormControl("", [ Validators.required, Validators.email ]),
-    password: new FormControl("", [ Validators.minLength(0), Validators.maxLength(16) ])
+    password: new FormControl("", [ //Validators.required, 
+      Validators.minLength(0), Validators.maxLength(16) ])
   });
 
-  constructor(private userData: UserDataService, private router: Router) {}
+  constructor(private loginService: LoginServiceService, private router: Router) {}
   
   ngOnInit() {
     localStorage.getItem("token");
@@ -30,11 +32,13 @@ export class LoginComponent implements OnInit, OnDestroy {
   }
 
   onLogin() {    
-    this.userData.login(this.loginForm.value.email, this.loginForm.value.password).subscribe({
+    this.loginService.login(this.loginForm.value.email, this.loginForm.value.password).subscribe({
         next: (response:any) => {
           if (response.token){
                 this.loginToken = response.token;
+                this.checkEmail = this.loginForm.value.email;
                 localStorage.setItem("token", this.loginToken);
+                localStorage.setItem("checkEmail",this.checkEmail);
                 this.router.navigateByUrl('/dashboard');
               }
           },
@@ -47,7 +51,7 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   reloadUser() {
     if (localStorage.getItem('token')){
-      this.isUserLoggedIn.next(true);
+      // this.isUserLoggedIn.next(true);
       this.router.navigateByUrl('/dashboard');
     }
   }
@@ -64,3 +68,12 @@ export class LoginComponent implements OnInit, OnDestroy {
     // Write unsubscribe logic
   }
 }
+
+// interceptors
+// RXJs operators, Obervables, BehaviourSubject
+// Resolvers
+// parent-child components and event binding across components
+// Route parameters to bind
+// Router outlet for header navbar
+// Custom pipes and custom directives
+// Create sub-module with router

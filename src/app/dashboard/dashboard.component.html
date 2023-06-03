@@ -1,9 +1,17 @@
-<h3>Users List</h3>
-<ul>
-    <li *ngFor="let user of users">
-        {{user.first_name}} {{user.last_name}} 
-    </li>
-</ul>
-<div class="row mt-2" style="align-self: center; width: fit-content; margin: auto;">
-    <button class="btn btn-primary" type="button" (click)="onLogout()">Log Out</button>
+<app-header></app-header>
+<!-- HEADER ABOVE -->
+
+<div class="container" style="margin-bottom: 10%; margin-top: 6%;">
+  <p class="welcome">Welcome, <span>"{{ this.checkMail | nameFromEmail | uppercase }}"</span></p>
+  
+  <app-userlist></app-userlist>
+  <!-- <router-outlet ></router-outlet> -->
+  <!-- <app-resources *ngIf="this.isShowResource"></app-resources> -->
+
+  <div class="row my-4" style="align-self: center; width: fit-content; margin: auto;">
+      <button class="btn btn-primary" type="button" (click)="onLogout()">Log Out</button>
+  </div>
 </div>
+
+<!-- FOOTER BELOW -->
+<app-footer></app-footer>

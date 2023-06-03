@@ -1,0 +1,6 @@
+<h3 class="m-4" >Resources List</h3>
+<ul class="m-4 list-group">
+    <li class="list-group-item" *ngFor="let resource of resourcesList">
+        {{resource.name}} ({{resource.year}}) with value: {{resource.pantone_value}}
+    </li>
+</ul>
