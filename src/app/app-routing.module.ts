@@ -24,8 +24,7 @@ const routes: Routes = [
   },
   {
     path: 'users',
-    component: UserlistComponent,
-    outlet: 'dash-userlist'
+    component: UserlistComponent
   },
   {
     path: 'resources',

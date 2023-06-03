@@ -76,3 +76,4 @@ export class LoginComponent implements OnInit, OnDestroy {
 // Route parameters to bind
 // Router outlet for header navbar
 // Custom pipes and custom directives
+// Create sub-module with router
