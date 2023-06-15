@@ -24,11 +24,13 @@ const routes: Routes = [
   },
   {
     path: 'users',
-    component: UserlistComponent
+    component: UserlistComponent,
+    canActivate: [authGuard]
   },
   {
     path: 'resources',
-    component: ResourcesComponent
+    component: ResourcesComponent,
+    canActivate: [authGuard]
   },
 ];
 

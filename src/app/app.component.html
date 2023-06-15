@@ -1,2 +1,13 @@
 <!-- <app-signup></app-signup> -->
+
+<app-header *ngIf="this.showHeadnFoot"></app-header>
+<!-- HEADER ABOVE -->
+
+<!-- <app-signup></app-signup> -->
+<!-- <app-dashboard></app-dashboard> -->
 <router-outlet></router-outlet>
+
+
+
+<!-- FOOTER BELOW -->
+<app-footer *ngIf="this.showHeadnFoot"></app-footer>

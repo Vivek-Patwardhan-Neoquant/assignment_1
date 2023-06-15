@@ -1,6 +1,5 @@
 import { AfterContentChecked, Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { UserDataService } from 'src/services/user-data.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -19,10 +18,10 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterContentChecke
   // isShowResource: any;
   // isShowUsers: any;
 
-  constructor(private userData:UserDataService, private router: Router) { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void { 
-    this.checkMail = localStorage.getItem("checkEmail");
+    this.checkMail = localStorage.getItem("checkEmail");    
   }
 
   ngAfterContentChecked(): void {
@@ -33,6 +32,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterContentChecke
   onLogout(){
     localStorage.removeItem("token");
     localStorage.removeItem("checkEmail");
+    this.checkMail = '';
     // localStorage.removeItem("checkEmail");
     this.router.navigateByUrl('/login');
   }
