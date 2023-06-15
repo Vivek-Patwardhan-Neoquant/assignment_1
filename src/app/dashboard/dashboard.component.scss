@@ -3,7 +3,7 @@
     display: flex;
     margin-right: 10px;
     justify-content: flex-start;
-    margin-left: 2%;
+    // margin-left: 2%;
 }
 
 .welcome span {
@@ -12,3 +12,20 @@
     color: mediumaquamarine;
     font-weight: 500;
 }
+
+.dashCard {
+    display: flex;
+    flex-direction: column;
+    padding: inherit;
+}
+
+.card-header {
+    font-weight: bold;
+}
+
+.cardBodyButton {
+    text-align: center;
+}
+// .card-header {
+//     width: 45%;
+// }

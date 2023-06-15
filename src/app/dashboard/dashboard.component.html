@@ -1,17 +1,43 @@
-<app-header></app-header>
-<!-- HEADER ABOVE -->
 
-<div class="container" style="margin-bottom: 10%; margin-top: 6%;">
+<div class="container pt-2" style="margin-bottom: 10%; margin-top: 6%;">
   <p class="welcome">Welcome, <span>"{{ this.checkMail | nameFromEmail | uppercase }}"</span></p>
-  
-  <app-userlist></app-userlist>
-  <!-- <router-outlet ></router-outlet> -->
-  <!-- <app-resources *ngIf="this.isShowResource"></app-resources> -->
-
-  <div class="row my-4" style="align-self: center; width: fit-content; margin: auto;">
-      <button class="btn btn-primary" type="button" (click)="onLogout()">Log Out</button>
-  </div>
+  <div class="container">
+    <div class="row mt-4" style="justify-content: center;">
+      <div class=" card dashCard col-5 ms-4 me-2">
+        <div class="card-header">
+          Add User
+        </div>
+        <div class="card-body">
+          <p>Add User and their Job profile</p>
+          <div class="cardBodyButton">
+            <button type="button" class="btn btn-dark" >
+              Add User
+            </button>
+            
+          </div>
+        </div>
+      </div>      
+      <div class="card dashCard col-5 ms-2 me-4">
+        <div class="card-header">
+          Update User
+        </div>
+        <div class="card-body">
+          <p>Update User and their Job profile</p>
+          <div class="cardBodyButton">
+            <button type="button" class="btn btn-dark" >
+              Update User
+            </button>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>  
 </div>
+  
+<router-outlet ></router-outlet>
 
-<!-- FOOTER BELOW -->
-<app-footer></app-footer>
+<div class="row my-4" style="align-self: center; width: fit-content; margin: auto;">
+    <button class="btn btn-primary" type="button" (click)="onLogout()">Log Out</button>
+</div>
+  <!-- <router-outlet ></router-outlet> -->

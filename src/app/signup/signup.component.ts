@@ -21,7 +21,8 @@ export class SignupComponent implements OnInit, OnDestroy {
     password: new FormControl("", [ Validators.required, Validators.minLength(4), Validators.maxLength(16) ])
   });
 
-  constructor (private signUpService: SignupServiceService, private router: Router) {}
+  constructor ( private signUpService: SignupServiceService, 
+                private router: Router) {}
 
   ngOnInit(): void {
     
