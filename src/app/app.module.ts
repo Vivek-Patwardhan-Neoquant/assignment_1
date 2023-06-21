@@ -18,11 +18,11 @@ import { CurrentUserPipe } from '../services/current-user.pipe';
     AppComponent,
     LoginComponent,
     SignupComponent,
-    DashboardComponent,
     HeaderComponent,
     FooterComponent,
     ResourcesComponent,
     UserlistComponent,
+    DashboardComponent,
     CurrentUserPipe
   ],
   imports: [
